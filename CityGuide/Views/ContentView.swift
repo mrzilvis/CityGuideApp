@@ -30,88 +30,69 @@ struct ContentView: View {
     }
     
     var body: some View {
-        TabView(selection: $selection) {
-            CategoryHome()
-                .tag(Tab.featured)
-                .environmentObject(ModelData())
-            
-            LandmarkList()
-                .tag(Tab.list)
-            .environmentObject(ModelData())
-        }
         
-//        GeometryReader {
-//            geometry in
-//            //            let colWidth = geometry.size.width / 3
-//
-//            TabView {
-//                NavigationView {
-//                    VStack() {
-//                        // NAV
-//                        SearchBar(text: self.$searchText)
-//                        Text("Nearby Objects")
-//
-////                        List {
-////                            ForEach(self.cars.filter {
-////                                self.searchText.isEmpty ? true : $0.lowercased().contains(self.searchText.lowercased())
-////                            }, id: \.self) { car in
-////                                Text(car)
-////                            }
-////                        }
-//                        .navigationBarTitle(Text("Vilnius"))
-//                    }
-//                }
-//                .tabItem {
-//                    Image(systemName: "house.fill")
-//                    Text("Home")
-//                }
-//
-//                NavigationView {
-//                    ScrollView {
-//                        VStack(spacing: 20) {
-//                            ForEach(0..<10) {
-//                                Text("Item \($0)")
-//                                    .foregroundColor(.white)
-//                                    .font(.largeTitle)
-//                                    .frame(width: 200, height: 200)
-//                                    .background(Color.red)
-//                            }
-//                        }
-//                    }
-//                    .frame(height: 350)
-//                }
-//                .tabItem {
-//                    Image(systemName: "magnifyingglass")
-//                    Text("Objects")
-//                }
-//
-//                NavigationView {
-//                    VStack {
-//                        Text("asd")
-//                    }
-//                }
-//                .tabItem {
-//                    Image(systemName: "camera")
-//                    Text("Camera")
-//                }
-//
-//                NavigationView {
-//                    VStack {
-//                        Text("asd")
-//                    }
-//                }
-//                .tabItem {
-//                    Image(systemName: "map")
-//                    Text("Map")
-//                }
-//            }
-//        }
+        
+        GeometryReader {
+            geometry in
+            //            let colWidth = geometry.size.width / 3
+            
+            TabView {
+                NavigationView {
+                    VStack() {
+                        CategoryHome()
+                            .tabItem {
+                                Image(systemName: "star")
+                                Text("Featured")
+                        }
+                        .tag(Tab.featured)
+                        .environmentObject(ModelData())
+                            
+                            
+                        .navigationBarTitle(Text("Vilnius"))
+                    }
+                }
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+                
+                NavigationView {
+                    LandmarkList()
+                        .environmentObject(ModelData())
+                        .navigationBarTitle("Objects")
+                }
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Objects")
+                }
+                
+                NavigationView {
+                    VStack {
+                        Text("asd")
+                    }
+                }
+                .tabItem {
+                    Image(systemName: "camera")
+                    Text("Camera")
+                }
+                
+                NavigationView {
+                    VStack {
+                        Text("asd")
+                    }
+                }
+                .tabItem {
+                    Image(systemName: "map")
+                    Text("Map")
+                }
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        .environmentObject(ModelData())
+            .environmentObject(ModelData())
     }
 }

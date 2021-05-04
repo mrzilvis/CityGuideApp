@@ -9,35 +9,38 @@
 import SwiftUI
 
 struct CategoryHome: View {
-//    var categoryName: String
-//    var items: [LandmarkObject]
+    //    var categoryName: String
+    //    var items: [LandmarkObject]
     @EnvironmentObject var modelData: ModelData
     
+    init() {
+        if #available(iOS 14.0, *) {
+            // iOS 14 doesn't have extra separators below the list by default.
+        } else {
+            // To remove only extra separators below the list:
+            UITableView.appearance().tableFooterView = UIView()
+        }
+        
+        // To remove all separators including the actual ones:
+        UITableView.appearance().separatorStyle = .none
+    }
+    
+    
     var body: some View {
-        NavigationView {
+        VStack {
             List {
-                modelData.features[0].image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 200)
-                    .clipped()
-                .listRowInsets(EdgeInsets())
-                
                 ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
                     CategoryRow(categoryName: key, items: self.modelData.categories[key]!)
                 }
                 .listRowInsets(EdgeInsets())
             }
-            .navigationBarTitle("Featured")
         }
     }
 }
 
-struct CategoryHome_Previews: PreviewProvider {
-//    static var landmarkObjects = ModelData().landmarkObjects
-    
+struct CategoryHome_Previews: PreviewProvider {    
     static var previews: some View {
         CategoryHome()
-        .environmentObject(ModelData())
+            .environmentObject(ModelData())
     }
 }

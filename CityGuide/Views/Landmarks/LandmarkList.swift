@@ -11,6 +11,7 @@ import SwiftUI
 struct LandmarkList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showFavoritesOnly = false
+    @State private var searchText : String = ""
     
     var filteredLandmarks: [LandmarkObject] {
         modelData.landmarkObjects.filter { landmark in
@@ -19,18 +20,26 @@ struct LandmarkList: View {
     }
     
     var body: some View {
-        NavigationView{
-            List {
-                Toggle(isOn: self.$showFavoritesOnly) {
-                    Text("Favorites only")
-                }
-                ForEach(self.filteredLandmarks) { landmark in
-                    NavigationLink(destination: LandmarkDetail(landmarkObject: landmark)) {
-                        LandmarkRow(landmarkObject: landmark)
-                    }
+        VStack {
+            SearchBar(text: self.$searchText)
+            ScrollView {
+                VStack {
+                    //                Toggle(isOn: self.$showFavoritesOnly) {
+                    //                    Text("Favorites only")
+                    //                }
+                    
+                    ForEach(self.filteredLandmarks.filter {
+                        self.searchText.isEmpty ? true : $0.name.lowercased().contains(self.searchText.lowercased())
+                    }) { landmark in
+                        NavigationLink(destination: LandmarkDetail(landmarkObject: landmark)
+                            .environmentObject(self.modelData))
+                             {
+                                LandmarkCard(landmark: landmark)
+                            }
+                        .buttonStyle(PlainButtonStyle())
+                        }
                 }
             }
-        .navigationBarTitle("Landmarks")
         }
     }
 }
@@ -38,11 +47,6 @@ struct LandmarkList: View {
 struct LandmarkList_Previews: PreviewProvider {
     
     static var previews: some View {
-//        ForEach(["iPhone SE (2nd generation)", "iPhone XS Max"], id: \.self) { deviceName in
-//            LandmarkList()
-//                .previewDevice(PreviewDevice(rawValue: deviceName))
-//            .previewDisplayName(deviceName)
-//        }
         LandmarkList()
             .environmentObject(ModelData())
     }

@@ -1,0 +1,34 @@
+//
+//  RatingOverlay.swift
+//  CityGuide
+//
+//  Created by Zilvinas on 2021-05-03.
+//  Copyright © 2021 Zilvinas. All rights reserved.
+//
+
+import SwiftUI
+
+struct RatingOverlay: View {
+    var landmark: LandmarkObject
+    var body: some View {
+        ZStack {
+            HStack{
+                Text(String(landmark.rating))
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                
+                Image(systemName: "star.fill")
+                    .foregroundColor(.white)
+                    .font(.headline)
+            }
+            .padding(6)
+        }
+    }
+}
+
+struct RatingOverlay_Previews: PreviewProvider {
+    static var previews: some View {
+        RatingOverlay(landmark: ModelData().landmarkObjects[0])
+    }
+}

@@ -17,9 +17,8 @@ struct CategoryItem: View {
                 .resizable()
                 .frame(width: 155, height: 155)
                 .cornerRadius(5)
-            Text(landmark.name)
-                .foregroundColor(.primary)
-                .font(.caption)
+                .overlay(ImageOverlay(landmark: landmark), alignment: .bottomLeading)
+                .overlay(RatingOverlay(landmark: landmark), alignment: .topTrailing)
         }
         .padding(.leading, 15)
     }
