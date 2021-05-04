@@ -31,13 +31,13 @@ struct LandmarkDetail: View {
                     Text(landmarkObject.name)
                         .font(.title)
                         .foregroundColor(.primary)
-                    FavoriteButton(isSet: $modelData.landmarkObjects[landmarkIndex].isFavorite)
+//                    FavoriteButton(isSet: $modelData.landmarkObjects[landmarkIndex].isFavorite)
                 }
 
                 HStack {
-                    Text(String(landmarkObject.rating))
                     Spacer()
-                    Text(landmarkObject.name)
+                    RatingSelectView(rating: $modelData.landmarkObjects[landmarkIndex].rating, ratingCount: $modelData.landmarkObjects[landmarkIndex].ratingCount)
+                    Spacer()
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)

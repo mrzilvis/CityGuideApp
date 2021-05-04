@@ -10,6 +10,12 @@ import SwiftUI
 
 struct LandmarkCard: View {
     var landmark: LandmarkObject
+    @EnvironmentObject var modelData: ModelData
+    
+    var landmarkIndex: Int {
+         modelData.landmarkObjects.firstIndex(where: { $0.id == landmark.id })!
+     }
+    
     var body: some View {
         VStack {
             landmark.image
@@ -25,10 +31,14 @@ struct LandmarkCard: View {
                         .fontWeight(.black)
                         .foregroundColor(.primary)
                         .lineLimit(2)
-                    Text(String(landmark.rating))
-                        .font(.headline)
-                        .foregroundColor(.yellow)
-
+                    HStack {
+                        Text(String(landmark.rating))
+                            .font(.headline)
+                            .foregroundColor(.yellow)
+                            .padding(.trailing, 5)
+                         
+                        RatingView(rating: $modelData.landmarkObjects[landmarkIndex].rating, ratingCount: $modelData.landmarkObjects[landmarkIndex].ratingCount)
+                    }
                     Text(landmark.description)
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -39,16 +49,18 @@ struct LandmarkCard: View {
             }
             .padding()
         }
-    .cornerRadius(10)
+        .cornerRadius(10)
         .overlay(RoundedRectangle(cornerRadius: 10)
         .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
         )
-            .padding([.top, .horizontal])
+        
+        .padding([.top, .horizontal])
     }
 }
 
 struct LandmarkCard_Previews: PreviewProvider {
     static var previews: some View {
         LandmarkCard(landmark: ModelData().landmarkObjects[0])
+        .environmentObject(ModelData())
     }
 }

@@ -35,6 +35,7 @@ struct LandmarkList: View {
                             .environmentObject(self.modelData))
                              {
                                 LandmarkCard(landmark: landmark)
+                                    .environmentObject(self.modelData)
                             }
                         .buttonStyle(PlainButtonStyle())
                         }
