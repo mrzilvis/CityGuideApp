@@ -78,8 +78,9 @@ struct ContentView: View {
                 
                 NavigationView {
                     VStack {
-                        Text("asd")
+                        MapSectionView()
                     }
+                .navigationBarTitle(Text("Object map"), displayMode: .inline)
                 }
                 .tabItem {
                     Image(systemName: "map")
