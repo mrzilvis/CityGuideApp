@@ -21,13 +21,13 @@ class AccommodationDataSource {
          would probably be downloaded from a server instead.
         */
         var annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 37.331_486, longitude: -121.882_607)
+        annotation.coordinate = CLLocationCoordinate2D(latitude: 54.63979359509479, longitude: 24.93323342547488)
         annotation.title = "Lumpy Lumbar Slumber"
         annotation.subtitle = "Save $$$ - Only $20 per night for attendees"
         annotations.append(annotation)
 
         annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 37.332_704, longitude: -121.887_640)
+        annotation.coordinate = CLLocationCoordinate2D(latitude: 54.64045219207636, longitude: 24.932502790682143)
         annotation.title = "Coder’s Dream Inn"
         annotation.subtitle = "Save $50 per night"
         annotations.append(annotation)

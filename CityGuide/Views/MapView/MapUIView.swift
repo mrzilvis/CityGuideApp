@@ -28,32 +28,36 @@ class Coordinator: NSObject, MKMapViewDelegate {
                 }
             }
         }
-        
     }
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier:
-                                                                      MKMapViewDefaultAnnotationViewReuseIdentifier,
-                                                                      for: annotation) as? MKMarkerAnnotationView {
-            if annotation is MKPointAnnotation {
-                annotationView.glyphText = "H"
-                annotationView.markerTintColor = nil
-            }
-
-            return annotationView
-        }
-
-        return nil
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let placemark = MKPlacemark(coordinate: view.annotation!.coordinate, addressDictionary: nil)
+        print(placemark)
+        let mapItem = MKMapItem(placemark: placemark)
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeTransit]
+//        self.title = title
+//        mapItem.name = title
+        mapItem.openInMaps(launchOptions: launchOptions)
     }
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier:
+//                                                                      MKMapViewDefaultAnnotationViewReuseIdentifier,
+//                                                                      for: annotation) as? MKMarkerAnnotationView {
+//            if annotation is MKPointAnnotation {
+//                annotationView.glyphText = "H"
+//                annotationView.markerTintColor = nil
+//            }
+//
+//            return annotationView
+//        }
+//
+//        return nil
+//    }
 }
     
 
 struct MapUIView: UIViewRepresentable {
     let localLandmarks: [LocalLandmark]
-    private let dataSource: AccommodationDataSource
-    
-//    init() {
-//
-//    }
     
     func makeUIView(context: Context) -> MKMapView {
         let map = MKMapView()
@@ -74,5 +78,9 @@ struct MapUIView: UIViewRepresentable {
         mapView.removeAnnotations(mapView.annotations)
         let annotations = self.localLandmarks.map(LandmarkAnnotation.init)
         mapView.addAnnotations(annotations)
+        
+        let dataSource = AccommodationDataSource()
+        mapView.addAnnotations(dataSource.annotations)
+        mapView.showAnnotations(dataSource.annotations, animated: false)
     }
 }

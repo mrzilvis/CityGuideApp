@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4044C2026427D8B00952D58 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4044C1F26427D8B00952D58 /* ARViewContainer.swift */; };
 		B456605E26403D8900BF8232 /* ImageOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456605D26403D8900BF8232 /* ImageOverlay.swift */; };
 		B4566060264041E400BF8232 /* RatingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456605F264041E400BF8232 /* RatingOverlay.swift */; };
 		B4566062264131EF00BF8232 /* LandmarkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4566061264131EF00BF8232 /* LandmarkCard.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B4044C1F26427D8B00952D58 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 		B456605D26403D8900BF8232 /* ImageOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlay.swift; sourceTree = "<group>"; };
 		B456605F264041E400BF8232 /* RatingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingOverlay.swift; sourceTree = "<group>"; };
 		B4566061264131EF00BF8232 /* LandmarkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkCard.swift; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4044C1E26427D6900952D58 /* ARView */ = {
+			isa = PBXGroup;
+			children = (
+				B4044C1F26427D8B00952D58 /* ARViewContainer.swift */,
+			);
+			path = ARView;
+			sourceTree = "<group>";
+		};
 		B456605C264036F200BF8232 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +229,7 @@
 		B45BDC51263F421F00FD7F51 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B4044C1E26427D6900952D58 /* ARView */,
 				B4A1D95A2641D90D008D3507 /* MapView */,
 				B45BDC4A263F0C7600FD7F51 /* Nav */,
 				B456605C264036F200BF8232 /* Category */,
@@ -432,6 +443,7 @@
 				B45BDC50263F2BF900FD7F51 /* SearchBar.swift in Sources */,
 				B45BDC56263F42DC00FD7F51 /* LandmarkObject.swift in Sources */,
 				B4A45FF326401027005AB90E /* CategoryRow.swift in Sources */,
+				B4044C2026427D8B00952D58 /* ARViewContainer.swift in Sources */,
 				B456606926419F5800BF8232 /* RatingView.swift in Sources */,
 				B45BDC53263F422E00FD7F51 /* CategoryHome.swift in Sources */,
 				B4A1D9652641E706008D3507 /* LandmarkAnnotation.swift in Sources */,

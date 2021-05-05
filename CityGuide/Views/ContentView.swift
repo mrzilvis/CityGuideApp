@@ -67,9 +67,8 @@ struct ContentView: View {
                 }
                 
                 NavigationView {
-                    VStack {
-                        Text("asd")
-                    }
+                    ARViewContainer()
+                        .edgesIgnoringSafeArea(.all)
                 }
                 .tabItem {
                     Image(systemName: "camera")
