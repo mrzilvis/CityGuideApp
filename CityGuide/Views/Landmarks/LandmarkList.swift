@@ -9,33 +9,19 @@
 import SwiftUI
 
 struct LandmarkList: View {
-    @EnvironmentObject var modelData: ModelData
-    @State private var showFavoritesOnly = false
-    @State private var searchText : String = ""
-    
-    var filteredLandmarks: [LandmarkObject] {
-        modelData.landmarkObjects.filter { landmark in
-            (!showFavoritesOnly || landmark.isFavorite)
-        }
-    }
+    @ObservedObject var landmarkListViewModel = LandmarkListViewModel()
+    @State private var searchText = ""
     
     var body: some View {
         VStack {
             SearchBar(text: self.$searchText)
             ScrollView {
                 VStack {
-                    //                Toggle(isOn: self.$showFavoritesOnly) {
-                    //                    Text("Favorites only")
-                    //                }
-                    
-                    ForEach(self.filteredLandmarks.filter {
-                        self.searchText.isEmpty ? true : $0.name.lowercased().contains(self.searchText.lowercased())
-                    }) { landmark in
-                        NavigationLink(destination: LandmarkDetail(landmarkObject: landmark)
-                            .environmentObject(self.modelData))
+                    ForEach(landmarkListViewModel.landmarkViewModels) { landmarkViewModel in
+                        
+                        NavigationLink(destination: LandmarkDetail(landmarkViewModel: landmarkViewModel))
                              {
-                                LandmarkCard(landmark: landmark)
-                                    .environmentObject(self.modelData)
+                                LandmarkCard(landmarkViewModel: landmarkViewModel)
                             }
                         .buttonStyle(PlainButtonStyle())
                         }
@@ -45,10 +31,11 @@ struct LandmarkList: View {
     }
 }
 
-struct LandmarkList_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        LandmarkList()
-            .environmentObject(ModelData())
-    }
-}
+//struct LandmarkList_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        let landmark = testData[0]
+//        LandmarkList()
+//            .environmentObject(ModelData())
+//    }
+//}

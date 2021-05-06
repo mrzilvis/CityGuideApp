@@ -9,16 +9,15 @@
 import SwiftUI
 
 struct LandmarkCard: View {
-    var landmark: LandmarkObject
-    @EnvironmentObject var modelData: ModelData
+    var landmarkViewModel: LandmarkViewModel
     
-    var landmarkIndex: Int {
-         modelData.landmarkObjects.firstIndex(where: { $0.id == landmark.id })!
-     }
+//    var landmarkIndex: Int {
+//         modelData.landmarkObjects.firstIndex(where: { $0.id == landmark.id })!
+//     }
     
     var body: some View {
         VStack {
-            landmark.image
+            landmarkViewModel.landmark.image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 350, height: 200)
@@ -26,20 +25,20 @@ struct LandmarkCard: View {
             
             HStack {
                 VStack(alignment: .leading) {
-                    Text(landmark.name)
+                    Text(landmarkViewModel.landmark.name)
                         .font(.headline)
                         .fontWeight(.black)
                         .foregroundColor(.primary)
                         .lineLimit(2)
                     HStack {
-                        Text(String(landmark.rating))
+                        Text(String(landmarkViewModel.landmark.rating))
                             .font(.headline)
                             .foregroundColor(.yellow)
                             .padding(.trailing, 5)
-                         
-                        RatingView(rating: $modelData.landmarkObjects[landmarkIndex].rating, ratingCount: $modelData.landmarkObjects[landmarkIndex].ratingCount)
+
+//                        RatingView(rating: landmarkViewModel.landmark.rating, ratingCount: landmarkViewModel.landmark.ratingCount)
                     }
-                    Text(landmark.description)
+                    Text(landmarkViewModel.landmark.description)
                         .font(.caption)
                         .foregroundColor(.secondary)
                     .lineLimit(5)
@@ -58,9 +57,9 @@ struct LandmarkCard: View {
     }
 }
 
-struct LandmarkCard_Previews: PreviewProvider {
-    static var previews: some View {
-        LandmarkCard(landmark: ModelData().landmarkObjects[0])
-        .environmentObject(ModelData())
-    }
-}
+//struct LandmarkCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LandmarkCard(landmark: ModelData().landmarkObjects[0])
+//        .environmentObject(ModelData())
+//    }
+//}

@@ -18,10 +18,8 @@ struct ContentView: View {
     //        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
     //    }
     
-    let cars = ["Subaru WRX", "Tesla Model 3",
-                "Porsche 911", "Renault Zoe", "DeLorean"]
     @State private var searchText : String = ""
-    @State private var modelData = ModelData()
+    @ObservedObject private var modelData = ModelData()
     @State private var selection: Tab = .featured
     
     enum Tab {
@@ -45,10 +43,8 @@ struct ContentView: View {
                                 Text("Featured")
                         }
                         .tag(Tab.featured)
-                        .environmentObject(ModelData())
-                            
-                            
                         .navigationBarTitle(Text("Vilnius"))
+                        .environmentObject(ModelData())
                     }
                 }
                 .tabItem {
@@ -58,9 +54,8 @@ struct ContentView: View {
                 
                 NavigationView {
                     LandmarkList()
-                        .environmentObject(ModelData())
-                        .navigationBarTitle("Objects")
-                }
+                     .navigationBarTitle("Objects")
+                    }
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Objects")
@@ -93,6 +88,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(ModelData())
     }
 }

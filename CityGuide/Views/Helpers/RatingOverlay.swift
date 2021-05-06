@@ -9,17 +9,16 @@
 import SwiftUI
 
 struct RatingOverlay: View {
-    @EnvironmentObject var modelData: ModelData
     var landmark: LandmarkObject
     
-    var landmarkIndex: Int {
-        modelData.landmarkObjects.firstIndex(where: { $0.id == landmark.id })!
-    }
+//    var landmarkIndex: Int {
+//        modelData.landmarkObjects.firstIndex(where: { $0.id == landmark.id })!
+//    }
     
     var body: some View {
         ZStack {
             HStack{
-                Text(String(modelData.landmarkObjects[landmarkIndex].rating))
+                Text(String(landmark.rating))
                     .font(.headline)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -33,8 +32,8 @@ struct RatingOverlay: View {
     }
 }
 
-struct RatingOverlay_Previews: PreviewProvider {
-    static var previews: some View {
-        RatingOverlay(landmark: ModelData().landmarkObjects[0])
-    }
-}
+//struct RatingOverlay_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RatingOverlay(landmark: ModelData().landmarkObjects[0])
+//    }
+//}

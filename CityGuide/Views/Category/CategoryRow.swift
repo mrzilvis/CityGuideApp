@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CategoryRow: View {
     var categoryName: String
-    var items: [LandmarkObject]
+    var items: [LandmarkViewModel]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -22,9 +22,9 @@ struct CategoryRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 0) {
                     Section {
-                        ForEach(items) { landmark in
-                            NavigationLink(destination: LandmarkDetail(landmarkObject: landmark).environmentObject(ModelData())){
-                                CategoryItem(landmark: landmark)
+                        ForEach(items) { landmarkViewModel in
+                            NavigationLink(destination: LandmarkDetail(landmarkViewModel: landmarkViewModel)){
+                                CategoryItem(landmarkViewModel: landmarkViewModel)
                             }
                         }
                     }
@@ -36,12 +36,12 @@ struct CategoryRow: View {
 }
 
 struct CategoryRow_Previews: PreviewProvider {
-    static var landmarks = ModelData().landmarkObjects
+    static var landmarkListViewModel = LandmarkListViewModel()
     
     static var previews: some View {
         CategoryRow(
-            categoryName: landmarks[0].category.rawValue,
-            items: Array(landmarks.prefix(4))
+            categoryName: landmarkListViewModel.landmarkViewModels[0].landmark.category.rawValue,
+            items: Array(arrayLiteral: landmarkListViewModel.landmarkViewModels[0])
         )
     }
 }

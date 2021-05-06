@@ -9,9 +9,10 @@
 import Foundation
 import SwiftUI
 import CoreLocation
+import FirebaseFirestoreSwift
 
-struct LandmarkObject: Hashable, Codable, Identifiable {
-    var id: Int
+struct LandmarkObject: Identifiable, Codable {
+    @DocumentID var id: String?
     var name: String
     var rating: Double
     var description: String
@@ -41,6 +42,19 @@ struct LandmarkObject: Hashable, Codable, Identifiable {
     struct Coordinates: Hashable, Codable {
         var latitude: Double
         var longitude: Double
+    }
+    
+    public init(id: String, name: String, rating: Double, description: String, isFavorite: Bool, isFeatured: Bool, ratingCount: Int, category: Category, imageName: String, coordinates: Coordinates) {
+        self.id = id
+        self.name = name
+        self.rating = rating
+        self.description = description
+        self.isFeatured = isFeatured
+        self.isFavorite = isFavorite
+        self.ratingCount = ratingCount
+        self.category = category
+        self.imageName = imageName
+        self.coordinates = coordinates
     }
     
 }

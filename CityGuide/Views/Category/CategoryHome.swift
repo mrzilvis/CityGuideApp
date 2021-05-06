@@ -9,9 +9,8 @@
 import SwiftUI
 
 struct CategoryHome: View {
-    //    var categoryName: String
-    //    var items: [LandmarkObject]
-    @EnvironmentObject var modelData: ModelData
+    @ObservedObject var landmarkListViewModel = LandmarkListViewModel()
+    var landmarkRepository = LandmarkRepository()
     
     init() {
         if #available(iOS 14.0, *) {
@@ -29,8 +28,8 @@ struct CategoryHome: View {
     var body: some View {
         VStack {
             List {
-                ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
-                    CategoryRow(categoryName: key, items: self.modelData.categories[key]!)
+                ForEach(landmarkListViewModel.categories.keys.sorted(), id: \.self) { key in
+                    CategoryRow(categoryName: key, items: self.landmarkListViewModel.categories[key]!)
                 }
                 .listRowInsets(EdgeInsets())
             }
@@ -41,6 +40,5 @@ struct CategoryHome: View {
 struct CategoryHome_Previews: PreviewProvider {    
     static var previews: some View {
         CategoryHome()
-            .environmentObject(ModelData())
     }
 }
