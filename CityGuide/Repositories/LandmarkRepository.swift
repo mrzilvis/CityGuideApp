@@ -41,4 +41,14 @@ class LandmarkRepository: ObservableObject {
         fatalError("Unable to add card: \(error.localizedDescription).")
       }
     }
+    
+    func update(_ landmark: LandmarkObject) {
+      guard let landmarkId = landmark.id else { return }
+        
+      do {
+        try db.collection(path).document(landmarkId).setData(from: landmark)
+      } catch {
+        fatalError("Unable to update landmark: \(error.localizedDescription).")
+      }
+    }
 }

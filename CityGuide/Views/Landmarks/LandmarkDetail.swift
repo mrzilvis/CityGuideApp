@@ -11,46 +11,76 @@ import SwiftUI
 struct LandmarkDetail: View {
     var landmarkViewModel: LandmarkViewModel
     
-//    var landmarkIndex: Int {
-//        modelData.landmarkObjects.firstIndex(where: { $0.id == landmarkObject.id })!
-//    }
+    //    var landmarkIndex: Int {
+    //        modelData.landmarkObjects.firstIndex(where: { $0.id == landmarkObject.id })!
+    //    }
     
     var body: some View {
         ScrollView {
-            MapView(coordinate: landmarkViewModel.landmark.locationCoordinate)
-                .frame(height: 300)
-                .edgesIgnoringSafeArea(.top)
-
-            CircleImage(image: landmarkViewModel.landmark.image)
-                .offset(y: -130)
-                .padding(.bottom, -130)
-
+            //            MapView(coordinate: landmarkViewModel.landmark.locationCoordinate)
+            //                .frame(height: 300)
+            //                .edgesIgnoringSafeArea(.top)
             VStack(alignment: .leading) {
-                HStack {
-                    Text(landmarkViewModel.landmark.name)
-                        .font(.title)
-                        .foregroundColor(.primary)
-//                    FavoriteButton(isSet: $modelData.landmarkObjects[landmarkIndex].isFavorite)
-                }
-
+                CircleImage(image: landmarkViewModel.landmark.image)
                 HStack {
                     Spacer()
-//                    RatingSelectView(rating: $modelData.landmarkObjects[landmarkIndex].rating, ratingCount: $modelData.landmarkObjects[landmarkIndex].ratingCount)
+                    VStack {
+                        RatingSelectView(landmarkViewModel: landmarkViewModel, rating: .constant(landmarkViewModel.landmark.rating), ratingCount: .constant(landmarkViewModel.landmark.ratingCount))
+                            .padding(.bottom, 5)
+                        
+                        Text("Rate it!")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
                     Spacer()
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-
+                
                 Divider()
+                
+                HStack {
+                    Text("Description")
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                    
+                    Button (action: {
+                        print("Navigates")
+                        
+                    }) {
+                        Text("Navigation")
+                            .fontWeight(.bold)
+                            .font(.caption)
+                            .foregroundColor(.blue)
+                            .padding(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.blue, lineWidth: 2)
+                            )
+                        }
+                    
+                    Button (action: {
+                        print("opens maps")
+                    }) {
+                            Text("Find in maps")
+                            .fontWeight(.bold)
+                            .font(.caption)
+                            .foregroundColor(.blue)
+                            .padding(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.blue, lineWidth: 2)
+                            )
+                    }
 
-                Text("About \(landmarkViewModel.landmark.name)")
-                    .font(.title)
+                }
                 Text(landmarkViewModel.landmark.description)
+                    .padding(.top, 10)
+                
             }
             .padding()
         }
-        .navigationBarTitle(landmarkViewModel.landmark.name)
-//        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitle(Text(landmarkViewModel.landmark.name), displayMode: .inline)
     }
 }
 

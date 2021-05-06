@@ -19,11 +19,18 @@ struct LandmarkObject: Identifiable, Codable {
     var isFavorite: Bool
     var isFeatured: Bool
     var ratingCount: Int
+    var ratedByUserIds: [UserRating]?
     
     var category: Category
     enum Category: String, CaseIterable, Codable {
         case museums = "Museums"
         case objects = "Objects"
+    }
+    
+    
+    struct UserRating: Codable {
+        var userId: String
+        var ratingGiven: Int
     }
     
     private var imageName: String

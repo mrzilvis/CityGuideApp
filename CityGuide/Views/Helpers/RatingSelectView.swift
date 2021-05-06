@@ -7,8 +7,13 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct RatingSelectView: View {
+    var landmarkViewModel: LandmarkViewModel
     @Binding var rating: Double
     @Binding var ratingCount: Int
     
@@ -19,9 +24,8 @@ struct RatingSelectView: View {
     
     var offColor = Color.gray
     var onColor = Color.yellow
-    @State var isTapped = false
-    @State var originalRating = 0.0
-    @State var ratingSelected = 0
+    @State var ratingSelected: Int = 0
+    @State var initialRating: Double = 0.0
     
     var body: some View {
         
@@ -31,33 +35,70 @@ struct RatingSelectView: View {
                 self.image(for: number)
                     .foregroundColor(number > Int(self.ratingSelected) ? self.offColor : self.onColor)
                     .onTapGesture {
-                        if self.isTapped != true {
-                            self.ratingCount += 1
-                            self.isTapped = true
-                            self.originalRating = self.rating
+                        self.ratingSelected = number
+                        if self.returnUserRating() > 0 {
+                            return
+//                            self.setNewRating(self.countNewRating(self.landmarkViewModel.landmark.rating, self.landmarkViewModel.landmark.ratingCount, false, number),
+//                                              false)
+                        } else {
+                            self.setNewRating(self.countNewRating(self.landmarkViewModel.landmark.rating, self.landmarkViewModel.landmark.ratingCount, true, number), true)
                         }
                         self.ratingSelected = number
-                        self.rating = (((self.originalRating * Double(self.ratingCount)) + Double(number)) / Double(self.ratingCount)).round(to: 1)
                 }
             }
-//            Text(String(ratingCount) + " reviews")
-//                .font(.caption)
-//                .foregroundColor(.secondary)
-//                .padding(.leading)
         }
     }
     
+    func returnUserRating() -> Int {
+        var ratingGiven = 0
+
+        landmarkViewModel.landmark.ratedByUserIds.map { userRating in
+            userRating.map{ values in
+                if values.userId == Auth.auth().currentUser?.uid ?? "" {
+                    ratingGiven = values.ratingGiven
+                }
+            }
+        }
+        return ratingGiven
+    }
+    
+    func countNewRating(_ rating: Double, _ ratingCount: Int, _ increment: Bool, _ starsSelected: Int) -> Double {
+        var ratingCount = ratingCount
+        if increment {
+            ratingCount += 1
+        }
+        return ((rating * Double(ratingCount) + Double(starsSelected)) / Double(ratingCount)).round(to: 1)
+    }
+    
     func image(for number: Int) -> Image {
-        if number > Int(ratingSelected) {
+        if returnUserRating() > 0 {
+            self.ratingSelected = returnUserRating()
+        }
+        if number > Int(self.ratingSelected) {
             return offImage ?? onImage
         } else {
             return onImage
         }
     }
-}
-
-struct RatingSelectView_Previews: PreviewProvider {
-    static var previews: some View {
-        RatingSelectView(rating: .constant(4), ratingCount: .constant(266))
+    
+    private func setNewRating(_ rating: Double, _ incrementRating: Bool) {
+        var updatedLandmark = landmarkViewModel.landmark
+        updatedLandmark.rating = rating
+        if incrementRating {
+            updatedLandmark.ratingCount += 1
+            let userRating = LandmarkObject.UserRating(userId: Auth.auth().currentUser?.uid ?? "", ratingGiven: self.ratingSelected)
+            updatedLandmark.ratedByUserIds?.append(userRating)
+        }
+        update(landmark: updatedLandmark)
+    }
+    
+    func update(landmark: LandmarkObject) {
+        landmarkViewModel.update(landmark: landmark)
     }
 }
+//
+//struct RatingSelectView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RatingSelectView(landmarkViewModel: LandmarkViewModel(landmark: LandmarkObject),rating: .constant(4), ratingCount: .constant(266))
+//    }
+//}

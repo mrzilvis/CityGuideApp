@@ -36,7 +36,7 @@ struct LandmarkCard: View {
                             .foregroundColor(.yellow)
                             .padding(.trailing, 5)
 
-//                        RatingView(rating: landmarkViewModel.landmark.rating, ratingCount: landmarkViewModel.landmark.ratingCount)
+                        RatingView(rating: .constant(landmarkViewModel.landmark.rating), ratingCount: .constant(landmarkViewModel.landmark.ratingCount))
                     }
                     Text(landmarkViewModel.landmark.description)
                         .font(.caption)

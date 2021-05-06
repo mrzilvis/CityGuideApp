@@ -12,9 +12,11 @@ struct CircleImage: View {
     var image: Image
     var body: some View {
         image
-        .clipShape(Circle())
-            .overlay(Circle().stroke(Color.gray, lineWidth: 4))
-        .shadow(radius: 7)
+        .resizable()
+        .aspectRatio(contentMode: .fill)
+            .frame(height: 200)
+        .clipped()
+        .padding(6)
     }
 }
 

@@ -9,7 +9,7 @@
 import Combine
 
 class LandmarkViewModel: ObservableObject, Identifiable {
-
+    private let landmarkRepository = LandmarkRepository()
     @Published var landmark: LandmarkObject
     
     private var cancellables: Set<AnyCancellable> = []
@@ -23,5 +23,9 @@ class LandmarkViewModel: ObservableObject, Identifiable {
             .compactMap { $0.id }
             .assign(to: \.id, on: self)
             .store(in: &cancellables)
+    }
+    
+    func update(landmark: LandmarkObject) {
+      landmarkRepository.update(landmark)
     }
 }
