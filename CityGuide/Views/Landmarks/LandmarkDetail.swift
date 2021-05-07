@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct LandmarkDetail: View {
     var landmarkViewModel: LandmarkViewModel
@@ -14,6 +15,26 @@ struct LandmarkDetail: View {
     //    var landmarkIndex: Int {
     //        modelData.landmarkObjects.firstIndex(where: { $0.id == landmarkObject.id })!
     //    }
+    
+    private func openMapForPlace() {
+
+//        let latitude: CLLocationDegrees = 37.2
+//        let longitude: CLLocationDegrees = 22.9
+//
+        let regionDistance:CLLocationDistance = 10000
+//        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let coordinates = landmarkViewModel.landmark.locationCoordinate
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = landmarkViewModel.landmark.name
+//        mapItem.description = "3-story 15th-century brick tower"
+        mapItem.openInMaps(launchOptions: options)
+    }
     
     var body: some View {
         ScrollView {
@@ -45,8 +66,7 @@ struct LandmarkDetail: View {
                         .multilineTextAlignment(.center)
                     
                     Button (action: {
-                        print("Navigates")
-                        
+                        self.openMapForPlace()
                     }) {
                         Text("Navigation")
                             .fontWeight(.bold)
@@ -59,21 +79,26 @@ struct LandmarkDetail: View {
                             )
                         }
                     
-                    Button (action: {
-                        print("opens maps")
-                    }) {
-                            Text("Find in maps")
-                            .fontWeight(.bold)
-                            .font(.caption)
-                            .foregroundColor(.blue)
-                            .padding(8)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.blue, lineWidth: 2)
-                            )
+                        Button (action: {
+                            print("asss")
+        
+                            
+                        }) {
+                            NavigationLink (destination: MapSectionView()){
+                                Text("Find in maps")
+                                .fontWeight(.bold)
+                                .font(.caption)
+                                .foregroundColor(.blue)
+                                .padding(8)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color.blue, lineWidth: 2)
+                                )
+                            }
+                        }
                     }
 
-                }
+                
                 Text(landmarkViewModel.landmark.description)
                     .padding(.top, 10)
                 
