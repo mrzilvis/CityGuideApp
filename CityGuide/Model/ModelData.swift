@@ -15,10 +15,6 @@ final class ModelData: ObservableObject {
     @Published var landmarkObjects = [LandmarkObject]()
     private var db = Firestore.firestore()
     
-    var features: [LandmarkObject] {
-        landmarkObjects.filter { $0.isFeatured }
-    }
-    
     var categories: [String: [LandmarkObject]] {
         Dictionary(
             grouping: landmarkObjects,

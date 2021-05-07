@@ -9,8 +9,9 @@
 import SwiftUI
 import MapKit
 struct MapSectionView: View {
-    
+    var localLandmarkCoordinates: CLLocationCoordinate2D?
     @ObservedObject var locationManager = LocationManager()
+    @ObservedObject var landmarkListViewModel = LandmarkListViewModel()
     @State private var localLandmarks: [LocalLandmark] = [LocalLandmark]()
     @State private var search: String = ""
     
@@ -31,7 +32,7 @@ struct MapSectionView: View {
     
     var body: some View {
         ZStack (alignment: .top) {
-            MapUIView(localLandmarks: localLandmarks)
+            MapUIView(landmarkListViewModel: landmarkListViewModel, localLandmarkCoordinates: localLandmarkCoordinates, localLandmarks: localLandmarks)
             TextField("Search", text: $search, onEditingChanged: { _ in})
             {
                 self.getNearByLandmarks()

@@ -16,8 +16,6 @@ struct LandmarkObject: Identifiable, Codable {
     var name: String
     var rating: Double
     var description: String
-    var isFavorite: Bool
-    var isFeatured: Bool
     var ratingCount: Int
     var ratedByUserIds: [UserRating]?
     
@@ -56,8 +54,6 @@ struct LandmarkObject: Identifiable, Codable {
         self.name = name
         self.rating = rating
         self.description = description
-        self.isFeatured = isFeatured
-        self.isFavorite = isFavorite
         self.ratingCount = ratingCount
         self.category = category
         self.imageName = imageName

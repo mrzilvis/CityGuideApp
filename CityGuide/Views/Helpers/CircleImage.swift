@@ -16,7 +16,7 @@ struct CircleImage: View {
         .aspectRatio(contentMode: .fill)
             .frame(height: 200)
         .clipped()
-        .padding(6)
+        .padding(2)
     }
 }
 

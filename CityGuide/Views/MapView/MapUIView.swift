@@ -18,13 +18,16 @@ class Coordinator: NSObject, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-        
+ 
         // MARK - Zoom into local region
         if let annotationView = views.first {
             if let annotation = annotationView.annotation {
                 if annotation is MKUserLocation {
-                    let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+                        let center = control.localLandmarkCoordinates ?? annotation.coordinate
+                        let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
+                    
                     mapView.setRegion(region, animated: true)
+//                    mapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
                 }
             }
         }
@@ -57,6 +60,8 @@ class Coordinator: NSObject, MKMapViewDelegate {
     
 
 struct MapUIView: UIViewRepresentable {
+    var landmarkListViewModel: LandmarkListViewModel
+    var localLandmarkCoordinates: CLLocationCoordinate2D?
     let localLandmarks: [LocalLandmark]
     
     func makeUIView(context: Context) -> MKMapView {
@@ -79,7 +84,7 @@ struct MapUIView: UIViewRepresentable {
         let annotations = self.localLandmarks.map(LandmarkAnnotation.init)
         mapView.addAnnotations(annotations)
         
-        let dataSource = AccommodationDataSource()
+        let dataSource = AccommodationDataSource(landmarkListViewModel: self.landmarkListViewModel)
         mapView.addAnnotations(dataSource.annotations)
         mapView.showAnnotations(dataSource.annotations, animated: false)
     }

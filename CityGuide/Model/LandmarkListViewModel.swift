@@ -14,10 +14,6 @@ class LandmarkListViewModel: ObservableObject {
     @Published var landmarkViewModels: [LandmarkViewModel] = []
     private var cancellables: Set<AnyCancellable> = []
     
-    var features: [LandmarkViewModel] {
-        landmarkViewModels.filter { $0.landmark.isFeatured }
-    }
-    
     var categories: [String: [LandmarkViewModel]] {
         Dictionary(
             grouping: landmarkViewModels,

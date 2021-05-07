@@ -84,7 +84,7 @@ struct LandmarkDetail: View {
         
                             
                         }) {
-                            NavigationLink (destination: MapSectionView()){
+                            NavigationLink (destination: MapSectionView(localLandmarkCoordinates: landmarkViewModel.landmark.locationCoordinate)){
                                 Text("Find in maps")
                                 .fontWeight(.bold)
                                 .font(.caption)
