@@ -20,6 +20,7 @@ struct LandmarkRow: View {
             Text(landmarkObject.name)
             Spacer()
         
+            
         }
     }
 }

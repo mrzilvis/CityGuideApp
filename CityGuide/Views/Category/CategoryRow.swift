@@ -7,30 +7,66 @@
 //
 
 import SwiftUI
+import MapKit
+import Combine
 
 struct CategoryRow: View {
     var categoryName: String
     var items: [LandmarkViewModel]
+    @ObservedObject var locationManager = LocationManager()
+
+    var userLatitude: String {
+        return "\(locationManager.location?.coordinate.latitude ?? 0)"
+    }
+    
+    var userLongitude: String {
+        return "\(locationManager.location?.coordinate.longitude ?? 0)"
+    }
+    
+    var userLocation: CLLocation {
+        return CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
+    }
     
     var body: some View {
+        
         VStack(alignment: .leading) {
             Text(categoryName)
                 .font(.headline)
                 .padding(.leading, 15)
                 .padding(.top, 5)
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(alignment: .top, spacing: 0) {
-                    Section {
-                        ForEach(items) { landmarkViewModel in
-                            NavigationLink(destination: LandmarkDetail(landmarkViewModel: landmarkViewModel)){
-                                CategoryItem(landmarkViewModel: landmarkViewModel)
+            if returnFilteredItems(items: items).count > 0 {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(alignment: .top, spacing: 0) {
+                        Section {
+                            ForEach(returnFilteredItems(items: items)) { landmarkViewModel in
+                                NavigationLink(destination: LandmarkDetail(landmarkViewModel: landmarkViewModel)){
+                                    CategoryItem(landmarkViewModel: landmarkViewModel)
+                                }
                             }
                         }
-                    }
-                }.animation(.default)
+                    }.animation(.default)
+                }
+                .frame(height: 185)
             }
-            .frame(height: 185)
+            else {
+                Text("No nearby \(categoryName) found")
+                .font(.caption)
+                    .foregroundColor(.secondary)
+                .padding(.leading, 15)
+                .padding(.bottom, 60)
+            }
+        }
+    }
+    
+    func returnFilteredItems(items: [LandmarkViewModel]) -> [LandmarkViewModel]{
+        return items.filter {
+            let smallestDistance = 1000.0
+            let objectLocation = CLLocation(latitude: $0.landmark.locationCoordinate.latitude, longitude: $0.landmark.locationCoordinate.longitude)
+            let distance = objectLocation.distance(from: userLocation)
+            if distance < smallestDistance {
+                return true
+            }
+            return false
         }
     }
 }

@@ -18,6 +18,7 @@ struct LandmarkObject: Identifiable, Codable {
     var description: String
     var ratingCount: Int
     var ratedByUserIds: [UserRating]?
+    var subtitle: String
     
     var category: Category
     enum Category: String, CaseIterable, Codable {
@@ -58,6 +59,19 @@ struct LandmarkObject: Identifiable, Codable {
         self.category = category
         self.imageName = imageName
         self.coordinates = coordinates
+        self.subtitle = ""
+    }
+    
+    public func returnFilteredItems(items: [LandmarkViewModel], userLocation: CLLocation) -> [LandmarkViewModel]{
+        return items.filter {
+            let smallestDistance = 1000.0
+            let objectLocation = CLLocation(latitude: $0.landmark.locationCoordinate.latitude, longitude: $0.landmark.locationCoordinate.longitude)
+            let distance = objectLocation.distance(from: userLocation)
+            if distance < smallestDistance {
+                return true
+            }
+            return false
+        }
     }
     
 }

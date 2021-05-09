@@ -17,8 +17,9 @@ struct LandmarkList: View {
             SearchBar(text: self.$searchText)
             ScrollView {
                 VStack {
-                    ForEach(landmarkListViewModel.landmarkViewModels) { landmarkViewModel in
-                        
+                    ForEach(landmarkListViewModel.landmarkViewModels.filter {
+                        self.searchText.isEmpty ? true : $0.landmark.name.lowercased().contains(self.searchText.lowercased())
+                    }) { landmarkViewModel in
                         NavigationLink(destination: LandmarkDetail(landmarkViewModel: landmarkViewModel))
                              {
                                 LandmarkCard(landmarkViewModel: landmarkViewModel)
