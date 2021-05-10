@@ -25,8 +25,8 @@ struct LandmarkList: View {
                                 LandmarkCard(landmarkViewModel: landmarkViewModel)
                             }
                         .buttonStyle(PlainButtonStyle())
-                        }
-                }
+                    }
+                }.navigationBarTitle(LocalizedStringKey("Objects"))
             }
         }
     }

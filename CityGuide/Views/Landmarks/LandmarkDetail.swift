@@ -49,7 +49,7 @@ struct LandmarkDetail: View {
                         RatingSelectView(landmarkViewModel: landmarkViewModel, rating: .constant(landmarkViewModel.landmark.rating), ratingCount: .constant(landmarkViewModel.landmark.ratingCount))
                             .padding(.bottom, 5)
                         
-                        Text("Rate it!")
+                        Text("RateIt")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -72,7 +72,7 @@ struct LandmarkDetail: View {
                             .fontWeight(.bold)
                             .font(.caption)
                             .foregroundColor(.blue)
-                            .padding(8)
+                            .padding(7)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.blue, lineWidth: 2)
@@ -80,16 +80,14 @@ struct LandmarkDetail: View {
                         }
                     
                         Button (action: {
-                            print("asss")
-        
-                            
+                            print("Success")
                         }) {
                             NavigationLink (destination: MapSectionView(localLandmarkCoordinates: landmarkViewModel.landmark.locationCoordinate)){
-                                Text("Find in maps")
+                                Text("find-in-maps")
                                 .fontWeight(.bold)
                                 .font(.caption)
                                 .foregroundColor(.blue)
-                                .padding(8)
+                                .padding(7)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 8)
                                         .stroke(Color.blue, lineWidth: 2)

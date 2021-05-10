@@ -29,10 +29,10 @@ struct RatingView: View {
                 
             }
         
-        Text(String(ratingCount) + " reviews")
-            .font(.caption)
-            .foregroundColor(.secondary)
-            .padding(.leading)
+            Text("\(ratingCount) reviews")
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .padding(.leading)
         }
     }
     

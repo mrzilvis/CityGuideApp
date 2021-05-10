@@ -74,7 +74,7 @@ struct ContentView: View {
                     VStack {
                         MapSectionView()
                     }
-                .navigationBarTitle(Text("Object map"), displayMode: .inline)
+                .navigationBarTitle(Text("ObjectMap"), displayMode: .inline)
                 }
                 .tabItem {
                     Image(systemName: "map")
@@ -88,5 +88,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environment(\.locale, Locale(identifier: "lt"))
     }
 }

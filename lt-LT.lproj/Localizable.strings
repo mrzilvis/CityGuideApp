@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  CityGuide
+
+  Created by Zilvinas on 2021-05-09.
+  Copyright © 2021 Zilvinas. All rights reserved.
+*/
+"Objects" = "Objektai";
+"ObjectsNearby" = "Objektai šalia";
+"Home" = "Pradinis";
+"Camera" = "Kamera";
+"Map" = "Žemėlapis";
+"RateIt" = "Įvertink!";
+"%@ reviews" = "%@ atsiliepimai";
+"ObjectMap" = "Objektų žemėlapis";
+"Museums" = "Muziejai";
+"MuseumsNearby" = "Muziejai šalia";
+"notfound %@" = "Nerasti jokie %@ šalia. Eikite į objektų puslapį, norėdami surasti visus objektus";
+"Description" = "Aprašymas";
+"Navigation" = "Nuorodos";
+"find-in-maps" = "Rasti žemėlapyje";
+"Search" = "Paieška";

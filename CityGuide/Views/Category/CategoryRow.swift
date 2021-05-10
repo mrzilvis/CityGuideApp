@@ -14,14 +14,6 @@ struct CategoryRow: View {
     var categoryName: String
     var items: [LandmarkViewModel]
     @ObservedObject var locationManager = LocationManager()
-
-    var userLatitude: String {
-        return "\(locationManager.location?.coordinate.latitude ?? 0)"
-    }
-    
-    var userLongitude: String {
-        return "\(locationManager.location?.coordinate.longitude ?? 0)"
-    }
     
     var userLocation: CLLocation {
         return CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
@@ -30,7 +22,7 @@ struct CategoryRow: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            Text(categoryName)
+            Text(LocalizedStringKey(returnLocalizedCategoryName(title: categoryName)))
                 .font(.headline)
                 .padding(.leading, 15)
                 .padding(.top, 5)
@@ -49,18 +41,29 @@ struct CategoryRow: View {
                 .frame(height: 185)
             }
             else {
-                Text("No nearby \(categoryName) found")
-                .font(.caption)
-                    .foregroundColor(.secondary)
-                .padding(.leading, 15)
-                .padding(.bottom, 60)
+                NavigationLink(destination: LandmarkList()){
+                    Text("notfound \(LandmarkObject.Category.getTitleFor(title: categoryName))")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .padding(.leading, 15)
+                        .padding(.bottom, 185)
+                        .padding(.trailing, 8)
+                }
             }
         }
+    }
+    
+    func returnLocalizedCategoryName(title: String) -> String {
+        if title == "Museums" {
+            return "MuseumsNearby"
+        }
+        return "ObjectsNearby"
     }
     
     func returnFilteredItems(items: [LandmarkViewModel]) -> [LandmarkViewModel]{
         return items.filter {
             let smallestDistance = 1000.0
+//            let smallestDistance = Double.greatestFiniteMagnitude
             let objectLocation = CLLocation(latitude: $0.landmark.locationCoordinate.latitude, longitude: $0.landmark.locationCoordinate.longitude)
             let distance = objectLocation.distance(from: userLocation)
             if distance < smallestDistance {

@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  CityGuide
+
+  Created by Zilvinas on 2021-05-09.
+  Copyright © 2021 Zilvinas. All rights reserved.
+*/
+"Objects" = "Objects";
+"ObjectsNearby" = "Objects nearby";
+"Home" = "Home";
+"Camera" = "Camera";
+"Map" = "Map";
+"RateIt" = "Rate it!";
+"%@ reviews" = "%@ reviews";
+"ObjectMap" = "Object map";
+"Museums" = "Museums";
+"MuseumsNearby" = "Museums nearby";
+"notfound %@" = "No nearby %@ found. Go to objects page to find objects";
+"Description" = "Description";
+"Navigation" = "Navigation";
+"find-in-maps" = "Find in maps";
+"Search" = "Search";

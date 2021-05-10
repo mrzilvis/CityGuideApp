@@ -24,6 +24,19 @@ struct LandmarkObject: Identifiable, Codable {
     enum Category: String, CaseIterable, Codable {
         case museums = "Museums"
         case objects = "Objects"
+        
+        func localizedString() -> String {
+            return NSLocalizedString(self.rawValue, comment: "")
+        }
+
+        static func getTitleFor(title: String) -> String {
+            if title == "Museums" {
+                return Category.museums.localizedString()
+            } else if title == "Objects" {
+                return Category.objects.localizedString()
+            }
+            return ""
+        }
     }
     
     

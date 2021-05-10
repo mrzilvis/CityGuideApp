@@ -22,6 +22,7 @@ struct CategoryHome: View {
         
         // To remove all separators including the actual ones:
         UITableView.appearance().separatorStyle = .none
+        sortedCategories()
     }
     
     
@@ -34,6 +35,11 @@ struct CategoryHome: View {
                 .listRowInsets(EdgeInsets())
             }
         }
+    }
+    
+    private func sortedCategories() {
+        let car = landmarkListViewModel.categories.sorted { $0.value.count > $1.value.count }
+        print("cats \(car)")
     }
 }
 
