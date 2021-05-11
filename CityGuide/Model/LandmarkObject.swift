@@ -77,7 +77,8 @@ struct LandmarkObject: Identifiable, Codable {
     
     public func returnFilteredItems(items: [LandmarkViewModel], userLocation: CLLocation) -> [LandmarkViewModel]{
         return items.filter {
-            let smallestDistance = 1000.0
+            // Change according to wanted nearby distance
+            let smallestDistance = Double.greatestFiniteMagnitude
             let objectLocation = CLLocation(latitude: $0.landmark.locationCoordinate.latitude, longitude: $0.landmark.locationCoordinate.longitude)
             let distance = objectLocation.distance(from: userLocation)
             if distance < smallestDistance {

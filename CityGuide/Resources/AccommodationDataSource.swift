@@ -14,12 +14,6 @@ class AccommodationDataSource {
     init(landmarkListViewModel: LandmarkListViewModel) {
         let landmarkListViewModel = landmarkListViewModel
         var annotations = [MKAnnotation]()
-        
-        /*
-         For the sake of simplicity of the sample code the accommodation
-         locations are declared in this file. In a real application this data
-         would probably be downloaded from a server instead.
-        */
         var annotation = MKPointAnnotation()
         landmarkListViewModel.landmarkViewModels.forEach { landmarkViewModel in
             annotation = MKPointAnnotation()

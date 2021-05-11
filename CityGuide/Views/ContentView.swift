@@ -62,7 +62,7 @@ struct ContentView: View {
                 }
                 
                 NavigationView {
-                    ARViewContainer()
+                    ARContentView()
                         .edgesIgnoringSafeArea(.all)
                 }
                 .tabItem {

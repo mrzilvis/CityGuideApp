@@ -27,7 +27,6 @@ class Coordinator: NSObject, MKMapViewDelegate {
                         let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
                     
                     mapView.setRegion(region, animated: true)
-//                    mapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
                 }
             }
         }
@@ -38,24 +37,8 @@ class Coordinator: NSObject, MKMapViewDelegate {
         print(placemark)
         let mapItem = MKMapItem(placemark: placemark)
         let launchOptions = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeTransit]
-//        self.title = title
-//        mapItem.name = title
         mapItem.openInMaps(launchOptions: launchOptions)
     }
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier:
-//                                                                      MKMapViewDefaultAnnotationViewReuseIdentifier,
-//                                                                      for: annotation) as? MKMarkerAnnotationView {
-//            if annotation is MKPointAnnotation {
-//                annotationView.glyphText = "H"
-//                annotationView.markerTintColor = nil
-//            }
-//
-//            return annotationView
-//        }
-//
-//        return nil
-//    }
 }
     
 
