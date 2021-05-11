@@ -56,10 +56,3 @@ struct LandmarkCard: View {
         .padding([.top, .horizontal])
     }
 }
-
-//struct LandmarkCard_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LandmarkCard(landmark: ModelData().landmarkObjects[0])
-//        .environmentObject(ModelData())
-//    }
-//}

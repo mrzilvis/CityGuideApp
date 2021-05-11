@@ -9,15 +9,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    //    init() {
-    //        //Use this if NavigationBarTitle is with Large Font
-    //        UINavigationBar.appearance().backgroundColor = UIColor(red: 118/255, green: 118/225, blue: 128/225, alpha: 0.12)
-    //
-    //        //Use this if NavigationBarTitle is with displayMode = .inline
-    //        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
-    //    }
-    
     @State private var searchText : String = ""
     @ObservedObject private var modelData = ModelData()
     @State private var selection: Tab = .featured
@@ -32,8 +23,6 @@ struct ContentView: View {
         
         GeometryReader {
             geometry in
-            //            let colWidth = geometry.size.width / 3
-            
             TabView {
                 NavigationView {
                     VStack() {

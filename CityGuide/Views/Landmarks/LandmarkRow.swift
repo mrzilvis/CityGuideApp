@@ -19,8 +19,6 @@ struct LandmarkRow: View {
                 .frame(width: 50, height: 50)
             Text(landmarkObject.name)
             Spacer()
-        
-            
         }
     }
 }

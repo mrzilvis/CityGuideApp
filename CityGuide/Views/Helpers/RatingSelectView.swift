@@ -38,8 +38,6 @@ struct RatingSelectView: View {
                         self.ratingSelected = number
                         if self.returnUserRating() > 0 {
                             return
-//                            self.setNewRating(self.countNewRating(self.landmarkViewModel.landmark.rating, self.landmarkViewModel.landmark.ratingCount, false, number),
-//                                              false)
                         } else {
                             self.setNewRating(self.countNewRating(self.landmarkViewModel.landmark.rating, self.landmarkViewModel.landmark.ratingCount, true, number), true)
                         }
@@ -96,9 +94,3 @@ struct RatingSelectView: View {
         landmarkViewModel.update(landmark: landmark)
     }
 }
-//
-//struct RatingSelectView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RatingSelectView(landmarkViewModel: LandmarkViewModel(landmark: LandmarkObject),rating: .constant(4), ratingCount: .constant(266))
-//    }
-//}

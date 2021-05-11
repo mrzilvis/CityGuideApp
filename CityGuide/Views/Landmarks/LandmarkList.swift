@@ -31,12 +31,3 @@ struct LandmarkList: View {
         }
     }
 }
-
-//struct LandmarkList_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//        let landmark = testData[0]
-//        LandmarkList()
-//            .environmentObject(ModelData())
-//    }
-//}

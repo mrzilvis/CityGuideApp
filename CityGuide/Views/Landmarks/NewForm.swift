@@ -45,11 +45,8 @@ struct NewForm: View {
         }
     }
     private func addLandmark() {
-        // 1
         let landmark = LandmarkObject(id: "1",name: name, rating: Double(rating) ?? 0.0, description: "", isFavorite: false, isFeatured: false, ratingCount: Int(ratingCount) ?? 0, category: LandmarkObject.Category.museums, imageName: "stmarylake", coordinates: LandmarkObject.Coordinates.init(latitude: 0.0, longitude: 0.0))
-        // 2
         landmarkListViewModel.add(landmark)
-        // 3
         presentationMode.wrappedValue.dismiss()
     }
 }

@@ -106,12 +106,3 @@ struct LandmarkDetail: View {
         .navigationBarTitle(Text(landmarkViewModel.landmark.name), displayMode: .inline)
     }
 }
-
-//struct LandmarkDetail_Previews: PreviewProvider {
-//    static let modelData = ModelData()
-//    
-//    static var previews: some View {
-//        LandmarkDetail(landmarkObject: modelData.landmarkObjects[0])
-//        .environmentObject(modelData)
-//    }
-//}
