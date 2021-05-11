@@ -49,6 +49,9 @@ struct MapUIView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> MKMapView {
         let map = MKMapView()
+        map.setContentHuggingPriority(.required, for: .horizontal) // << here !!
+        map.setContentHuggingPriority(.required, for: .vertical)
+        
         map.showsUserLocation = true
         map.delegate = context.coordinator
         return map

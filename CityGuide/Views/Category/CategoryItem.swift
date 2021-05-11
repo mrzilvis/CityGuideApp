@@ -15,7 +15,9 @@ struct CategoryItem: View {
             landmarkViewModel.landmark.image
                 .renderingMode(.original)
                 .resizable()
-                .frame(width: 155, height: 155)
+                .aspectRatio(contentMode: .fill)
+                .clipped()
+                .frame(width: 200, height: 200)
                 .cornerRadius(5)
                 .overlay(ImageOverlay(landmark: landmarkViewModel.landmark), alignment: .bottomLeading)
                 .overlay(RatingOverlay(landmark: landmarkViewModel.landmark), alignment: .topTrailing)

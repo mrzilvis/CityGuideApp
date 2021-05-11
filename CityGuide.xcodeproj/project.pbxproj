@@ -51,6 +51,7 @@
 		B4A1D9672641EFD8008D3507 /* AccommodationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A1D9662641EFD8008D3507 /* AccommodationDataSource.swift */; };
 		B4A45FF326401027005AB90E /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A45FF226401027005AB90E /* CategoryRow.swift */; };
 		B4A45FF52640160E005AB90E /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A45FF42640160E005AB90E /* CategoryItem.swift */; };
+		B4D4C110264ADEAF00FBF1FE /* SearchBarUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D4C10F264ADEAF00FBF1FE /* SearchBarUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +203,7 @@
 		B4A1D9662641EFD8008D3507 /* AccommodationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommodationDataSource.swift; sourceTree = "<group>"; };
 		B4A45FF226401027005AB90E /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		B4A45FF42640160E005AB90E /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		B4D4C10F264ADEAF00FBF1FE /* SearchBarUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarUI.swift; sourceTree = "<group>"; };
 		B6E9D12F22F105567DD65F4C /* Pods-CityGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityGuide.debug.xcconfig"; path = "Target Support Files/Pods-CityGuide/Pods-CityGuide.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -367,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				B45BDC4F263F2BF900FD7F51 /* SearchBar.swift */,
+				B4D4C10F264ADEAF00FBF1FE /* SearchBarUI.swift */,
 			);
 			path = Nav;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				B47483552643DB9100645CB0 /* NewForm.swift in Sources */,
 				B4044C742642A12000952D58 /* LandmarkRepository.swift in Sources */,
 				B45BDC50263F2BF900FD7F51 /* SearchBar.swift in Sources */,
+				B4D4C110264ADEAF00FBF1FE /* SearchBarUI.swift in Sources */,
 				B45BDC56263F42DC00FD7F51 /* LandmarkObject.swift in Sources */,
 				B4A45FF326401027005AB90E /* CategoryRow.swift in Sources */,
 				B4044C2026427D8B00952D58 /* ARViewContainer.swift in Sources */,

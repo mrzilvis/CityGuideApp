@@ -14,6 +14,7 @@ struct MapSectionView: View {
     @ObservedObject var landmarkListViewModel = LandmarkListViewModel()
     @State private var localLandmarks: [LocalLandmark] = [LocalLandmark]()
     @State private var search: String = ""
+    @State private var isEditing: Bool = false
     
     private func getNearByLandmarks() {
         let request = MKLocalSearch.Request()
@@ -33,12 +34,8 @@ struct MapSectionView: View {
     var body: some View {
         ZStack (alignment: .top) {
             MapUIView(landmarkListViewModel: landmarkListViewModel, localLandmarkCoordinates: localLandmarkCoordinates, localLandmarks: localLandmarks)
-            TextField("Search", text: $search, onEditingChanged: { _ in})
-            {
-                self.getNearByLandmarks()
-            }.textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-                .offset(y:44)
+            SearchBarUI(text: $search, isEditing: $isEditing)
+                
         }
     }
 }

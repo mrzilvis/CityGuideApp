@@ -11,10 +11,11 @@ import SwiftUI
 struct LandmarkList: View {
     @ObservedObject var landmarkListViewModel = LandmarkListViewModel()
     @State private var searchText = ""
+    @State private var isEditing = false
     
     var body: some View {
         VStack {
-            SearchBar(text: self.$searchText)
+            SearchBarUI(text: self.$searchText, isEditing: $isEditing)
             ScrollView {
                 VStack {
                     ForEach(landmarkListViewModel.landmarkViewModels.filter {
@@ -27,6 +28,7 @@ struct LandmarkList: View {
                         .buttonStyle(PlainButtonStyle())
                     }
                 }.navigationBarTitle(LocalizedStringKey("Objects"))
+                .navigationBarHidden(isEditing).animation(.linear(duration: 0.25))
             }
         }
     }

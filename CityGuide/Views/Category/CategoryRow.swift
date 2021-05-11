@@ -25,7 +25,8 @@ struct CategoryRow: View {
             Text(LocalizedStringKey(returnLocalizedCategoryName(title: categoryName)))
                 .font(.headline)
                 .padding(.leading, 15)
-                .padding(.top, 5)
+                .padding(.top, 20)
+                .padding(.bottom, 10)
             if returnFilteredItems(items: items).count > 0 {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .top, spacing: 0) {
@@ -34,6 +35,7 @@ struct CategoryRow: View {
                                 NavigationLink(destination: LandmarkDetail(landmarkViewModel: landmarkViewModel)){
                                     CategoryItem(landmarkViewModel: landmarkViewModel)
                                 }
+                                .padding(.bottom, 20)
                             }
                         }
                     }.animation(.default)
@@ -62,8 +64,8 @@ struct CategoryRow: View {
     
     func returnFilteredItems(items: [LandmarkViewModel]) -> [LandmarkViewModel]{
         return items.filter {
-            let smallestDistance = 1000.0
-//            let smallestDistance = Double.greatestFiniteMagnitude
+//            let smallestDistance = 1000.0
+            let smallestDistance = Double.greatestFiniteMagnitude
             let objectLocation = CLLocation(latitude: $0.landmark.locationCoordinate.latitude, longitude: $0.landmark.locationCoordinate.longitude)
             let distance = objectLocation.distance(from: userLocation)
             if distance < smallestDistance {
