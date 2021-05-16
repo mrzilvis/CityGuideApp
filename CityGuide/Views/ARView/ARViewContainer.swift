@@ -12,9 +12,8 @@ import ARKit
 
 struct ARViewContainer: UIViewRepresentable {
     
-    @Binding var saved: Bool
-    @Binding var loaded: Bool
-    
+//    @Binding var saved: Bool
+//    @Binding var loaded: Bool
     
     let arView = ARView(frame: .zero)
     let config = ARWorldTrackingConfiguration()

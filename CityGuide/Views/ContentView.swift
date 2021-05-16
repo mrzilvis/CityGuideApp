@@ -52,7 +52,7 @@ struct ContentView: View {
                 
                 NavigationView {
                     ARContentView()
-                        .edgesIgnoringSafeArea(.all)
+                        
                 }
                 .tabItem {
                     Image(systemName: "camera")

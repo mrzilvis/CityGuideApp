@@ -7,10 +7,13 @@
 //
 
 import Combine
+import MapKit
 
 class LandmarkViewModel: ObservableObject, Identifiable {
     private let landmarkRepository = LandmarkRepository()
+    private var locationManager = LocationManager()
     @Published var landmark: LandmarkObject
+    
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -27,5 +30,14 @@ class LandmarkViewModel: ObservableObject, Identifiable {
     
     func update(landmark: LandmarkObject) {
       landmarkRepository.update(landmark)
+    }
+    
+    var userLocation: CLLocation {
+        return CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0, longitude: locationManager.location?.coordinate.longitude ?? 0)
+    }
+    
+    func returnDistanceFromObject(item: LandmarkViewModel) -> CLLocationDistance {
+        let objectLocation = CLLocation(latitude: item.landmark.locationCoordinate.latitude, longitude: item.landmark.locationCoordinate.longitude)
+        return objectLocation.distance(from: userLocation)
     }
 }

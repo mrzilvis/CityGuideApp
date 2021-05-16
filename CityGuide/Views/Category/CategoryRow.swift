@@ -33,7 +33,7 @@ struct CategoryRow: View {
                         Section {
                             ForEach(returnFilteredItems(items: items)) { landmarkViewModel in
                                 NavigationLink(destination: LandmarkDetail(landmarkViewModel: landmarkViewModel)){
-                                    CategoryItem(landmarkViewModel: landmarkViewModel)
+                                    CategoryItem(landmarkViewModel: landmarkViewModel, distanceToItem: self.returnDistanceFromObject(item: landmarkViewModel))
                                 }
                                 .padding(.bottom, 20)
                             }
@@ -66,13 +66,17 @@ struct CategoryRow: View {
         return items.filter {
 //            let smallestDistance = 1000.0
             let smallestDistance = Double.greatestFiniteMagnitude
-            let objectLocation = CLLocation(latitude: $0.landmark.locationCoordinate.latitude, longitude: $0.landmark.locationCoordinate.longitude)
-            let distance = objectLocation.distance(from: userLocation)
+            let distance = self.returnDistanceFromObject(item: $0)
             if distance < smallestDistance {
                 return true
             }
             return false
         }
+    }
+    
+    func returnDistanceFromObject(item: LandmarkViewModel) -> CLLocationDistance {
+        let objectLocation = CLLocation(latitude: item.landmark.locationCoordinate.latitude, longitude: item.landmark.locationCoordinate.longitude)
+        return objectLocation.distance(from: userLocation)
     }
 }
 

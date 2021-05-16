@@ -13,12 +13,12 @@ struct ARContentView: View {
     @State private var loader = false
     
     var body: some View {
-        VStack {
             ZStack {
-                ARViewContainer(saved: $saver, loaded: $loader)
+                ARViewContainer()
+                .edgesIgnoringSafeArea(.all)
+                RoundButton()
             }
         }
-    }
 }
 
 struct ARContentView_Previews: PreviewProvider {

@@ -20,3 +20,5 @@
 "Navigation" = "Nuorodos";
 "find-in-maps" = "Rasti žemėlapyje";
 "Search" = "Paieška";
+"ARInfo" = "Ant iš anksto nuskaitytų objektų matote piktogramą, ant kurios užvedus viduryje ekrane yra žymeklio autobuso atidarymo langas su trumpa informacija. Palaikius taikiklį 3 sekundes bus atidarytas pilnas informacijos langas";
+"virtualExcursion" = "Virtuali ekskursija";

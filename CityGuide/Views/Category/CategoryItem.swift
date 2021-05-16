@@ -7,9 +7,12 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct CategoryItem: View {
     var landmarkViewModel: LandmarkViewModel
+    var distanceToItem: CLLocationDistance
+    
     var body: some View {
         VStack(alignment: .leading){
             landmarkViewModel.landmark.image
@@ -21,6 +24,7 @@ struct CategoryItem: View {
                 .cornerRadius(5)
                 .overlay(ImageOverlay(landmark: landmarkViewModel.landmark), alignment: .bottomLeading)
                 .overlay(RatingOverlay(landmark: landmarkViewModel.landmark), alignment: .topTrailing)
+                .overlay(DistanceOverlay(distance: Int(distanceToItem)), alignment: .topLeading)
         }
         .padding(.leading, 15)
     }

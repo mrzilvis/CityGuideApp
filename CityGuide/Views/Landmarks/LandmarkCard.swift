@@ -22,6 +22,7 @@ struct LandmarkCard: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 350, height: 200)
                 .clipped()
+                .overlay(DistanceOverlay(distance: Int(landmarkViewModel.returnDistanceFromObject(item: landmarkViewModel))), alignment: .topLeading)
             
             HStack {
                 VStack(alignment: .leading) {
@@ -37,6 +38,20 @@ struct LandmarkCard: View {
                             .padding(.trailing, 5)
 
                         RatingView(rating: .constant(landmarkViewModel.landmark.rating), ratingCount: .constant(landmarkViewModel.landmark.ratingCount))
+                    }
+                    if landmarkViewModel.landmark.category == LandmarkObject.Category.museums {
+                        NavigationLink (destination: ARContentView()){
+                            Text("virtualExcursion")
+                            .fontWeight(.bold)
+                            .font(.caption)
+                            .foregroundColor(.blue)
+                            .padding(7)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.blue, lineWidth: 2)
+                            )
+                        }
+                        .padding(3)
                     }
                     Text(landmarkViewModel.landmark.description)
                         .font(.caption)

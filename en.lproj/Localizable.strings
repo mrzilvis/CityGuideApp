@@ -20,3 +20,5 @@
 "Navigation" = "Navigation";
 "find-in-maps" = "Find in maps";
 "Search" = "Search";
+"ARInfo" = "On pre-scanned objects, you see an icon with a pointer bus opening window with brief information in the middle of the screen. Holding the sight for 3 seconds will open a full info window";
+"virtualExcursion" = "Virtual Excursion";
