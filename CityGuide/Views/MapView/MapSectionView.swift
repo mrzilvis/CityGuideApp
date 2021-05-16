@@ -15,6 +15,7 @@ struct MapSectionView: View {
     @State private var localLandmarks: [LocalLandmark] = [LocalLandmark]()
     @State private var search: String = ""
     @State private var isEditing: Bool = false
+    @State private var tapped: Bool = false
     
     private func getNearByLandmarks() {
         let request = MKLocalSearch.Request()
@@ -31,11 +32,25 @@ struct MapSectionView: View {
         }
     }
     
+    func calculateOffset() -> CGFloat {
+        if self.landmarkListViewModel.landmarkViewModels.count > 0 && !self.tapped {
+            return UIScreen.main.bounds.size.height - UIScreen.main.bounds.size.height / 4
+        } else if self.tapped {
+            return 100
+        } else {
+            return UIScreen.main.bounds.size.height
+        }
+    }
+    
     var body: some View {
         ZStack (alignment: .top) {
             MapUIView(landmarkListViewModel: landmarkListViewModel, localLandmarkCoordinates: localLandmarkCoordinates, localLandmarks: localLandmarks)
             SearchBarUI(text: $search, isEditing: $isEditing)
-                
+            PlaceListView(landmarkViewModels: landmarkListViewModel.landmarkViewModels) {
+                self.tapped.toggle()
+            }
+            .animation(.spring())
+                .offset(y: calculateOffset())
         }
     }
 }

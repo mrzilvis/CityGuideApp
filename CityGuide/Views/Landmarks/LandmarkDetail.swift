@@ -61,9 +61,6 @@ struct LandmarkDetail: View {
                 Divider()
                 
                 HStack {
-                    Text("Description")
-                        .font(.title)
-                        .multilineTextAlignment(.center)
                     
                     Button (action: {
                         self.openMapForPlace()
@@ -94,7 +91,28 @@ struct LandmarkDetail: View {
                                 )
                             }
                         }
+                        if landmarkViewModel.landmark.category == LandmarkObject.Category.museums {
+                            Button (action: {
+                                print("Success")
+                            }) {
+                                NavigationLink (destination: ARContentView()){
+                                    Text("virtualExcursion")
+                                    .fontWeight(.bold)
+                                    .font(.caption)
+                                    .foregroundColor(.blue)
+                                    .padding(7)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(Color.blue, lineWidth: 2)
+                                    )
+                                }
+                            }
+                        }
                     }
+
+                Text("Description")
+                .font(.title)
+                .multilineTextAlignment(.center)
 
                 
                 Text(landmarkViewModel.landmark.description)
