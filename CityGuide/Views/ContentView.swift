@@ -12,71 +12,76 @@ struct ContentView: View {
     @State private var searchText : String = ""
     @ObservedObject private var modelData = ModelData()
     @State private var selection: Tab = .featured
-    
+    @State private var isWalktroughViewShowing = true
+    @State private var onboardingDone = false
+    var data = tabs
     enum Tab {
         case featured
         case list
     }
     
     var body: some View {
-        
-        
-        GeometryReader {
-            geometry in
-            TabView {
-                NavigationView {
-                    VStack() {
-                        CategoryHome()
-                            .tabItem {
-                                Image(systemName: "star")
-                                Text("Featured")
+        Group {
+            if !onboardingDone {
+                OnboardingViewPure(data: tabs, doneFunction: {
+                    self.onboardingDone = true
+                })
+            } else {
+                TabView {
+                    NavigationView {
+                        VStack() {
+                            CategoryHome()
+                                .tabItem {
+                                    Image(systemName: "star")
+                                    Text("Featured")
+                            }
+                            .tag(Tab.featured)
+                            .navigationBarTitle(Text("Vilnius"))
+                            .environmentObject(ModelData())
                         }
-                        .tag(Tab.featured)
-                        .navigationBarTitle(Text("Vilnius"))
-                        .environmentObject(ModelData())
                     }
-                }
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-                
-                NavigationView {
-                    LandmarkList()
-                     .navigationBarTitle("Objects")
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
                     }
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Objects")
-                }
-                
-                NavigationView {
-                    ARContentView()
+                    
+                    NavigationView {
+                        LandmarkList()
+                            .navigationBarTitle("Objects")
+                    }
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                        Text("Objects")
+                    }
+                    
+                    NavigationView {
+                        ARContentView()
                         
-                }
-                .tabItem {
-                    Image(systemName: "camera")
-                    Text("Camera")
-                }
-                
-                NavigationView {
-                    VStack {
-                        MapSectionView()
                     }
-                .navigationBarTitle(Text("ObjectMap"), displayMode: .inline)
-                }
-                .tabItem {
-                    Image(systemName: "map")
-                    Text("Map")
+                    .tabItem {
+                        Image(systemName: "camera")
+                        Text("Camera")
+                    }
+                    
+                    NavigationView {
+                        VStack {
+                            MapSectionView()
+                        }
+                        .navigationBarTitle(Text("ObjectMap"), displayMode: .inline)
+                    }
+                    .tabItem {
+                        Image(systemName: "map")
+                        Text("Map")
+                    }
                 }
             }
         }
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .environment(\.locale, Locale(identifier: "lt"))
-    }
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+                .environment(\.locale, Locale(identifier: "lt"))
+        }
 }

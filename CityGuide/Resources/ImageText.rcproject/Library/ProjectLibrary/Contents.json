@@ -8,5 +8,15 @@
     "libraryIdentifier" : "7716a44c46d08fddcd9fe39361e16695",
     "format" : "image",
     "displayName" : "IMG_6038.heic"
+  },
+  {
+    "libraryIdentifier" : "a20fa6765d2e84434ca9889cf0f59b88",
+    "format" : "arObject",
+    "displayName" : "chair.arobject"
+  },
+  {
+    "libraryIdentifier" : "8fc6759c1f08bf4b3acfb21a11cd931e",
+    "format" : "arObject",
+    "displayName" : "sonos.arobject"
   }
 ]
