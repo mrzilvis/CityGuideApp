@@ -148,6 +148,13 @@
 			remoteGlobalIDString = 531AFF146052D18D7006692ACAD46D82;
 			remoteInfo = FirebaseFirestoreSwift;
 		};
+		B435E1C62653F67200506543 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4044C232642947600952D58 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ED51E9C639C8FFA6E92E6BECC847BA7D;
+			remoteInfo = SSSwiftUIGIFView;
+		};
 		B45BDBF2263EE36D00FD7F51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B45BDBD3263EE36800FD7F51 /* Project object */;
@@ -299,6 +306,7 @@
 				B4044C412642947700952D58 /* nanopb.framework */,
 				B4044C432642947700952D58 /* Pods_CityGuide.framework */,
 				B4044C492642947700952D58 /* FBLPromises.framework */,
+				B435E1C72653F67200506543 /* SSSwiftUIGIFView.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -712,6 +720,13 @@
 			fileType = wrapper.framework;
 			path = FirebaseFirestoreSwift.framework;
 			remoteRef = B4044C6A2642A12000952D58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B435E1C72653F67200506543 /* SSSwiftUIGIFView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SSSwiftUIGIFView.framework;
+			remoteRef = B435E1C62653F67200506543 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

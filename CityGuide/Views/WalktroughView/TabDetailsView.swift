@@ -7,16 +7,18 @@
 //
 
 import SwiftUI
+import SSSwiftUIGIFView
 
 struct TabDetailsView: View {
     let index: Int
     
     var body: some View {
         VStack {
-            Image(tabs[index].image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 560)
+//            Image(tabs[index].image)
+            SwiftUIGIFPlayerView(gifName: "Image")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .frame(width: 560)
             
             Text(tabs[index].title)
                 .font(.title)
