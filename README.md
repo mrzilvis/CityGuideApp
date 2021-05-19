@@ -6,6 +6,10 @@ iOS Deployment Target > 13.7
 
 ### How to run the example?
 
+Prerequisites:
+1. XCode 11.0+ running on macOS 10.15+
+1. iPhone with iOS 13.0+ for simulating app
+
 1. Clone this repo
 1. Open shell window and navigate to project folder
 1. Run `pod install`
