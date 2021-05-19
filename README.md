@@ -1,6 +1,7 @@
 # Vilnius City Guide app for VU Bachelor thesis
 
 Built using XCode 11.7 (Swift 4)
+
 iOS Deployment Target > 13.7
 
 ### How to run the example?
