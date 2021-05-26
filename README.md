@@ -29,3 +29,9 @@ Users using the app are able to:
 1. Find landmark in map 
 1. Get directions to landmark
 1. Find your location relative to landmarks in the city
+
+Demonstration of the app:
+
+https://user-images.githubusercontent.com/17772723/119720068-33d3cd80-be72-11eb-802d-e285ac238eb2.mov
+
+
