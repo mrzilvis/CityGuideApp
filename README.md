@@ -29,6 +29,8 @@ Users using the app are able to:
 1. Find landmark in map 
 1. Get directions to landmark
 1. Find your location relative to landmarks in the city
+1. Change language between Lithuanian and English in app settings
+1. Set dark/light mode in general device settings
 
 Demonstration of the app:
 
