@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,10 @@
 		B435E1AE2653E1E800506543 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B435E1AD2653E1E800506543 /* GradientView.swift */; };
 		B435E1B12653EA4500506543 /* OnboardingViewPure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B435E1B02653EA4500506543 /* OnboardingViewPure.swift */; };
 		B435E1B32653EA8F00506543 /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B435E1B22653EA8F00506543 /* OnboardingStepView.swift */; };
+		B435E1CA2654088300506543 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B435E1C92654088300506543 /* OnboardingButton.swift */; };
 		B438792D264D1A4100DDC849 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B438792C264D1A4100DDC849 /* Popup.swift */; };
+		B43E8915265D463D00FF0957 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = B43E8914265D463D00FF0957 /* FocusEntity */; };
+		B43E8927265D46C800FF0957 /* RKPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43E8926265D46C800FF0957 /* RKPath.swift */; };
 		B456605E26403D8900BF8232 /* ImageOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456605D26403D8900BF8232 /* ImageOverlay.swift */; };
 		B4566060264041E400BF8232 /* RatingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456605F264041E400BF8232 /* RatingOverlay.swift */; };
 		B4566062264131EF00BF8232 /* LandmarkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4566061264131EF00BF8232 /* LandmarkCard.swift */; };
@@ -27,6 +30,9 @@
 		B456606926419F5800BF8232 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456606826419F5800BF8232 /* RatingView.swift */; };
 		B45729962648861200FD4BA8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B45729982648861200FD4BA8 /* Localizable.strings */; };
 		B45729AB264942E700FD4BA8 /* ARContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45729AA264942E700FD4BA8 /* ARContentView.swift */; };
+		B4590DB9265D4BA4003C756B /* CityGuideARView + Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4590DB8265D4BA4003C756B /* CityGuideARView + Gestures.swift */; };
+		B4590DCB265D4C2A003C756B /* ARModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4590DCA265D4C2A003C756B /* ARModel.swift */; };
+		B4590DCD265D4D01003C756B /* CityGuideARView + Occlusions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4590DCC265D4D01003C756B /* CityGuideARView + Occlusions.swift */; };
 		B45B2BD52653A4A4000283EC /* WalktroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B2BD42653A4A4000283EC /* WalktroughView.swift */; };
 		B45B2BD72653CE2B000283EC /* PageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B2BD62653CE2B000283EC /* PageTabView.swift */; };
 		B45B2BD92653CEC6000283EC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B2BD82653CEC6000283EC /* Data.swift */; };
@@ -57,7 +63,6 @@
 		B47AF7E62651B44400A55736 /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47AF7E52651B44400A55736 /* PlaceListView.swift */; };
 		B47AF7EA2652B53100A55736 /* CityGuideARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47AF7E92652B53100A55736 /* CityGuideARView.swift */; };
 		B47AF7EC2652B72200A55736 /* CityGuideARView+Coaching.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47AF7EB2652B72200A55736 /* CityGuideARView+Coaching.swift */; };
-		B47AF7EE2652BF0900A55736 /* ImageText.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = B47AF7ED2652BF0900A55736 /* ImageText.rcproject */; };
 		B47C8A4926449C8B00DFC4DD /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47C8A4826449C8B00DFC4DD /* TextView.swift */; };
 		B4A1D95C2641D932008D3507 /* MapSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A1D95B2641D932008D3507 /* MapSectionView.swift */; };
 		B4A1D95E2641DA3E008D3507 /* MapUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A1D95D2641DA3E008D3507 /* MapUIView.swift */; };
@@ -68,6 +73,7 @@
 		B4A45FF326401027005AB90E /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A45FF226401027005AB90E /* CategoryRow.swift */; };
 		B4A45FF52640160E005AB90E /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A45FF42640160E005AB90E /* CategoryItem.swift */; };
 		B4D4C110264ADEAF00FBF1FE /* SearchBarUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D4C10F264ADEAF00FBF1FE /* SearchBarUI.swift */; };
+		B4DC3CB626579C1E00A61EB4 /* ImageText.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = B4DC3CB526579C1E00A61EB4 /* ImageText.rcproject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,7 +191,9 @@
 		B435E1AD2653E1E800506543 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		B435E1B02653EA4500506543 /* OnboardingViewPure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPure.swift; sourceTree = "<group>"; };
 		B435E1B22653EA8F00506543 /* OnboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepView.swift; sourceTree = "<group>"; };
+		B435E1C92654088300506543 /* OnboardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
 		B438792C264D1A4100DDC849 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		B43E8926265D46C800FF0957 /* RKPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKPath.swift; sourceTree = "<group>"; };
 		B456605D26403D8900BF8232 /* ImageOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlay.swift; sourceTree = "<group>"; };
 		B456605F264041E400BF8232 /* RatingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingOverlay.swift; sourceTree = "<group>"; };
 		B4566061264131EF00BF8232 /* LandmarkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkCard.swift; sourceTree = "<group>"; };
@@ -196,6 +204,9 @@
 		B45729972648861200FD4BA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B45729992648861400FD4BA8 /* lt-LT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "lt-LT"; path = "lt-LT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B45729AA264942E700FD4BA8 /* ARContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARContentView.swift; sourceTree = "<group>"; };
+		B4590DB8265D4BA4003C756B /* CityGuideARView + Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityGuideARView + Gestures.swift"; sourceTree = "<group>"; };
+		B4590DCA265D4C2A003C756B /* ARModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModel.swift; sourceTree = "<group>"; };
+		B4590DCC265D4D01003C756B /* CityGuideARView + Occlusions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityGuideARView + Occlusions.swift"; sourceTree = "<group>"; };
 		B45B2BD42653A4A4000283EC /* WalktroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalktroughView.swift; sourceTree = "<group>"; };
 		B45B2BD62653CE2B000283EC /* PageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTabView.swift; sourceTree = "<group>"; };
 		B45B2BD82653CEC6000283EC /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -232,7 +243,6 @@
 		B47AF7E52651B44400A55736 /* PlaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
 		B47AF7E92652B53100A55736 /* CityGuideARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityGuideARView.swift; sourceTree = "<group>"; };
 		B47AF7EB2652B72200A55736 /* CityGuideARView+Coaching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityGuideARView+Coaching.swift"; sourceTree = "<group>"; };
-		B47AF7ED2652BF0900A55736 /* ImageText.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = ImageText.rcproject; sourceTree = "<group>"; };
 		B47C8A4826449C8B00DFC4DD /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		B4A1D95B2641D932008D3507 /* MapSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSectionView.swift; sourceTree = "<group>"; };
 		B4A1D95D2641DA3E008D3507 /* MapUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUIView.swift; sourceTree = "<group>"; };
@@ -243,6 +253,7 @@
 		B4A45FF226401027005AB90E /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		B4A45FF42640160E005AB90E /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		B4D4C10F264ADEAF00FBF1FE /* SearchBarUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarUI.swift; sourceTree = "<group>"; };
+		B4DC3CB526579C1E00A61EB4 /* ImageText.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = ImageText.rcproject; sourceTree = "<group>"; };
 		B6E9D12F22F105567DD65F4C /* Pods-CityGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CityGuide.debug.xcconfig"; path = "Target Support Files/Pods-CityGuide/Pods-CityGuide.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B43E8915265D463D00FF0957 /* FocusEntity in Frameworks */,
 				A338DA1C8BE55BC9FBADA990 /* Pods_CityGuide.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,10 +296,13 @@
 		B4044C1E26427D6900952D58 /* ARView */ = {
 			isa = PBXGroup;
 			children = (
-				B4044C1F26427D8B00952D58 /* ARViewContainer.swift */,
-				B45729AA264942E700FD4BA8 /* ARContentView.swift */,
 				B47AF7E92652B53100A55736 /* CityGuideARView.swift */,
+				B45729AA264942E700FD4BA8 /* ARContentView.swift */,
+				B4044C1F26427D8B00952D58 /* ARViewContainer.swift */,
 				B47AF7EB2652B72200A55736 /* CityGuideARView+Coaching.swift */,
+				B43E8926265D46C800FF0957 /* RKPath.swift */,
+				B4590DB8265D4BA4003C756B /* CityGuideARView + Gestures.swift */,
+				B4590DCC265D4D01003C756B /* CityGuideARView + Occlusions.swift */,
 			);
 			path = ARView;
 			sourceTree = "<group>";
@@ -464,6 +479,7 @@
 				B4A1D9642641E706008D3507 /* LandmarkAnnotation.swift */,
 				B474833926432BDA00645CB0 /* LandmarkViewModel.swift */,
 				B474835226432FAA00645CB0 /* LandmarkListViewModel.swift */,
+				B4590DCA265D4C2A003C756B /* ARModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -471,7 +487,7 @@
 		B45BDC58263F44E800FD7F51 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B47AF7ED2652BF0900A55736 /* ImageText.rcproject */,
+				B4DC3CB526579C1E00A61EB4 /* ImageText.rcproject */,
 				B45BDC5B263F470900FD7F51 /* landmarkObjects.json */,
 				B4A1D9662641EFD8008D3507 /* AccommodationDataSource.swift */,
 			);
@@ -504,6 +520,7 @@
 				B40973B7264CFD3300B7A075 /* InfoView.swift */,
 				B438792C264D1A4100DDC849 /* Popup.swift */,
 				B47AF7D42651177000A55736 /* DistanceOverlay.swift */,
+				B435E1C92654088300506543 /* OnboardingButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -554,6 +571,9 @@
 			dependencies = (
 			);
 			name = CityGuide;
+			packageProductDependencies = (
+				B43E8914265D463D00FF0957 /* FocusEntity */,
+			);
 			productName = CityGuide;
 			productReference = B45BDBDB263EE36800FD7F51 /* CityGuide.app */;
 			productType = "com.apple.product-type.application";
@@ -627,6 +647,9 @@
 				"lt-LT",
 			);
 			mainGroup = B45BDBD2263EE36800FD7F51;
+			packageReferences = (
+				B43E8913265D463D00FF0957 /* XCRemoteSwiftPackageReference "FocusEntity" */,
+			);
 			productRefGroup = B45BDBDC263EE36800FD7F51 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -830,12 +853,14 @@
 				B435E19B2653D2F900506543 /* ButtonView.swift in Sources */,
 				B456605E26403D8900BF8232 /* ImageOverlay.swift in Sources */,
 				B4A1D95C2641D932008D3507 /* MapSectionView.swift in Sources */,
+				B4DC3CB626579C1E00A61EB4 /* ImageText.rcproject in Sources */,
 				B4A1D95E2641DA3E008D3507 /* MapUIView.swift in Sources */,
 				B4A1D9672641EFD8008D3507 /* AccommodationDataSource.swift in Sources */,
 				B45B2BD52653A4A4000283EC /* WalktroughView.swift in Sources */,
 				B40973B8264CFD3300B7A075 /* InfoView.swift in Sources */,
 				B47483552643DB9100645CB0 /* NewForm.swift in Sources */,
 				B4044C742642A12000952D58 /* LandmarkRepository.swift in Sources */,
+				B4590DCB265D4C2A003C756B /* ARModel.swift in Sources */,
 				B45BDC50263F2BF900FD7F51 /* SearchBar.swift in Sources */,
 				B4D4C110264ADEAF00FBF1FE /* SearchBarUI.swift in Sources */,
 				B45BDC56263F42DC00FD7F51 /* LandmarkObject.swift in Sources */,
@@ -850,6 +875,7 @@
 				B435E1AE2653E1E800506543 /* GradientView.swift in Sources */,
 				B435E1AC2653E16F00506543 /* AccountButtonView.swift in Sources */,
 				B45729AB264942E700FD4BA8 /* ARContentView.swift in Sources */,
+				B435E1CA2654088300506543 /* OnboardingButton.swift in Sources */,
 				B435E1B32653EA8F00506543 /* OnboardingStepView.swift in Sources */,
 				B45BDC53263F422E00FD7F51 /* CategoryHome.swift in Sources */,
 				B4A1D9652641E706008D3507 /* LandmarkAnnotation.swift in Sources */,
@@ -862,18 +888,20 @@
 				B45BDC5E263F474F00FD7F51 /* LandmarkRow.swift in Sources */,
 				B45BDC64263FD5E400FD7F51 /* CircleImage.swift in Sources */,
 				B438792D264D1A4100DDC849 /* Popup.swift in Sources */,
+				B43E8927265D46C800FF0957 /* RKPath.swift in Sources */,
 				B45BDC62263FD4F500FD7F51 /* LandmarkDetail.swift in Sources */,
 				B4566060264041E400BF8232 /* RatingOverlay.swift in Sources */,
 				B45B2BD72653CE2B000283EC /* PageTabView.swift in Sources */,
+				B4590DB9265D4BA4003C756B /* CityGuideARView + Gestures.swift in Sources */,
 				B45BDC5A263F46AD00FD7F51 /* ModelData.swift in Sources */,
 				B47AF7EC2652B72200A55736 /* CityGuideARView+Coaching.swift in Sources */,
 				B47AF7E62651B44400A55736 /* PlaceListView.swift in Sources */,
 				B4A45FF52640160E005AB90E /* CategoryItem.swift in Sources */,
 				B45BDC68263FE9BD00FD7F51 /* FavoriteButton.swift in Sources */,
-				B47AF7EE2652BF0900A55736 /* ImageText.rcproject in Sources */,
 				B4A1D9612641DC00008D3507 /* LocationManager.swift in Sources */,
 				B45660642641734200BF8232 /* RatingSelectView.swift in Sources */,
 				B45660672641839400BF8232 /* Double.swift in Sources */,
+				B4590DCD265D4D01003C756B /* CityGuideARView + Occlusions.swift in Sources */,
 				B4566062264131EF00BF8232 /* LandmarkCard.swift in Sources */,
 				B474833A26432BDA00645CB0 /* LandmarkViewModel.swift in Sources */,
 				B4A1D9632641E6A2008D3507 /* LocalLandmark.swift in Sources */,
@@ -1215,6 +1243,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B43E8913265D463D00FF0957 /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B43E8914265D463D00FF0957 /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B43E8913265D463D00FF0957 /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B45BDBD3263EE36800FD7F51 /* Project object */;
 }

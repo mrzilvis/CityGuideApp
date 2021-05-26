@@ -38,7 +38,15 @@ struct ContentView: View {
                             .tag(Tab.featured)
                             .navigationBarTitle(Text("Vilnius"))
                             .environmentObject(ModelData())
+                        .overlay(                            Button(action: {
+                                OnboardingViewPure(data: tabs, doneFunction: {
+                                    self.onboardingDone = true
+                                })
+                        }, label: {
+                            Image("info.circle")
+                        }), alignment: .topTrailing)
                         }
+                        
                     }
                     .tabItem {
                         Image(systemName: "house.fill")

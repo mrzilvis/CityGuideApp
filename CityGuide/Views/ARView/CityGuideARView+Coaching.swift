@@ -13,14 +13,27 @@ import Foundation
 
 extension CityGuideARView: ARCoachingOverlayViewDelegate {
   func addCoaching() {
-    self.coachingOverlay.delegate = self
-    self.coachingOverlay.session = self.session
-    self.coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
-    // MARK: CoachingGoal
-    self.coachingOverlay.goal = .horizontalPlane
-    self.coachingOverlay.goal = .tracking
+    let coachingOverlay = ARCoachingOverlayView()
+    
+    coachingOverlay.autoresizingMask = [
+      .flexibleWidth, .flexibleHeight
+    ]
+    
+    self.addSubview(coachingOverlay)
+    
+    // Set the Augmented Reality goal
+    coachingOverlay.goal = .anyPlane
+    // Set the ARSession
+    coachingOverlay.session = self.session
+    // Set the delegate for any callbacks
+    coachingOverlay.delegate = self
     
     self.addSubview(self.coachingOverlay)
   }
+    
+    func coachingOverlayViewDidDeactivate(
+      _ coachingOverlayView: ARCoachingOverlayView
+    ) {
+//        self.addScene()
+    }
 }

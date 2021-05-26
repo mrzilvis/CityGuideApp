@@ -18,5 +18,10 @@
     "libraryIdentifier" : "8fc6759c1f08bf4b3acfb21a11cd931e",
     "format" : "arObject",
     "displayName" : "sonos.arobject"
+  },
+  {
+    "libraryIdentifier" : "56efb1f6140bd00adf9140302ee40bdf",
+    "format" : "image",
+    "displayName" : "IMG_6140.heic"
   }
 ]
